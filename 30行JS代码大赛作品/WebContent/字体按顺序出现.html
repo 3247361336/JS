@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+onload=function(){
+	var d = document, c = d.createElement('CANVAS');
+	c.height = c.width = 100;
+	var ctx = c.getContext('2d');
+	ctx.textBaseline = "top";
+	var hanzi2dianzhen = { 
+	    paintFont : function(char, size, font) {
+	        ctx.clearRect(0, 0, c.width, c.height);
+	        ctx.font = [size, 'px', ' ', font].join('');
+	        ctx.fillText(char, 0, 0); 
+	    },
+	    getDianZhen : function(x, y, percent, offsetX, offsetY) {
+	        var result  = [], imgData = ctx.getImageData(offsetX, offsetY, x, y);
+	        for(var i = 0; i < x; i++) {
+	            for(var j = 0; j < y; j++) result.push( imgData.data[ (i * y + j) * 4 + 3] / 255 > percent ? 1 : 0 );
+	        }
+	        return result;    
+	    } 
+	};
+	var s = '这里是字体变化'.split(''), i = 0, size = 32;/*  */
+	(function() {
+	    hanzi2dianzhen.paintFont(s[i++ % s.length], size, '宋体');
+	    var r = hanzi2dianzhen.getDianZhen(size, size, 0.3, 0, 0);
+	    var ss = '';
+	    for(var j = 0; j < r.length;) {
+	        ss += r[j] ? '*' : '+';
+	        if( ++j % size === 0) ss += '\n';
+	    }
+	    document.body.innerHTML = '<pre style="font-family:Monaco,Menlo,Consolas,monospace; line-height: 0.6; font-size: 12px; color: black;">' + ss + '</pre>';
+	    setTimeout(arguments.callee, 500);
+	})();
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

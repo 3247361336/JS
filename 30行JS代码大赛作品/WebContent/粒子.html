@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var c = document.getElementById('canvas'),cwidth = c.offsetWidth,cheight = c.offsetHeight,ctx = c.getContext('2d'), everything = [],ballrad = 2;
+var words=[
+[40,30],[70, 30],[100,30],[130,30],[180, 30] ,[190,30]         ,[330, 30],[360, 30],[390, 30] ,[460,30],[490, 30],[520, 30]
+       ,[80, 40]                  ,[180, 40]     ,[230,40]     ,[330, 40]                     ,[460,40]
+       ,[80, 70]                  ,[180, 70]         ,[250, 70],[330, 90],[360, 90],[390, 90] ,[460,90],[490, 90],[520, 90]
+       ,[80,100]                  ,[180,100] ,[190,100]        ,[330,100]                     ,[460,100]
+       ,[80,130]                  ,[180,130]     ,[230,130]    ,[330,130]                     ,[460,130]
+       ,[80,160]                  ,[180,160]         ,[250,160],[330,160],[360,160],[390,160] ,[460,160],[490,160],[520,160]
+];
+
+var Ball = function(sx,sy,rad,stylestring){
+  this.sx = sx;
+  this.sy = sy;
+  this.rad = rad;
+  this.draw = drawball;
+  this.move = moveball;
+  this.fillstyle = stylestring;
+  this.reachable=false;
+};
+var drawball = function(){
+  ctx.fillStyle = this.fillstyle;
+  ctx.beginPath();
+  ctx.arc(this.sx,this.sy,this.rad,0,Math.PI*2,true);
+  ctx.fill();
+};
+var moveball=function(dx,dy){this.sx += dx;this.sy += dy;};
+var drawall=function(){
+  ctx.clearRect(0,0,cwidth,cheight);
+  for(var i=0;i<everything.length;i++){
+    everything[i].draw();
+  }
+};
+
+onload=function(){
+  for(var i=0;i<2000;i++){
+    everything.push(new Ball(Math.random()*cwidth-ballrad,Math.random()*cheight-ballrad,ballrad,"rgb("+parseInt(Math.random()*255,10)+','+parseInt(Math.random()*255,10)+','+parseInt(Math.random()*255,10)+")"));
+  }
+  setInterval(function(){
+    for(var i=0;i<everything.length;i++){
+    var _this=everything[i];
+    for(var j=0;j<words.length;j++){
+      if(Math.abs(_this.sx-words[j][0])<20 && Math.abs(_this.sy-words[j][1])<20 && Math.random()>0.9){
+        _this.reachable=true; 
+      }
+    }
+    if(!_this.reachable){
+      everything[i].move(Math.random()*60-30,Math.random()*60-30);
+    }
+  }
+  drawall();
+  },1000/5);
+};
+
+</script>
+</head>
+<body>
+<canvas id="canvas" width="600" height="200"></canvas>
+</body>
+</html>

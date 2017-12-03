@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+    background: #fff;
+}
+
+#clock {
+    width: 401px;
+    height: 401px;
+    border: 1px solid #000;
+    border-radius: 200px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+hr {
+    height: 0;
+    border: none;
+    border-bottom : 1px solid #000;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 200px;
+    left: 0;
+}
+
+h1 {
+    position: absolute;
+    width: 401px;
+    height: 401px;
+    top: 100px;
+    z-index: 12;
+    font-size: 15px;
+    text-align: center;
+}
+
+#bar {
+    position: absolute;
+    width: 381px;
+    height: 381px;
+    left: 10px;
+    top: 10px;
+    float: left;
+    background: #fff;
+    border-radius: 190px;
+}
+
+.scale {
+    width: 399px;
+}
+
+.stick {
+    width: 1px;
+    height: 1px;
+    z-index: 15;
+    border-color: #000;
+    border-bottom-color: transparent;
+    border-width: 199px 0;
+    border-style: solid;
+    top: 0;
+    left: 199px;
+}
+
+#second {
+    border-top-color: red;
+}
+
+#hour {
+    top: 49px;
+    border-width: 150px 0;
+    width: 5px;
+    left: 197px;
+}
+
+#minute {
+    width: 5px;
+    left: 197px;
+}
+
+#center {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    z-index: 20;
+    background: #999;
+    left: 195px;
+    top: 195px;
+    position: absolute;
+}
+</style>
+<script type="text/javascript">
+onload=function(){
+	var el = function (id) {return document.getElementById(id)},
+    rotate = function (id, deg) {
+        var e = el(id), prefix = ['', '-o-', '-ms-', '-webkit-', '-moz-'];
+        for (var i = 0; i < prefix.length; i ++) e.style[prefix[i] + 'transform'] = 'rotate(' + deg + 'deg)';
+    };
+
+for (var i = 1; i <= 6; i ++)
+    rotate('s-' + i, (i - 1) * 30);
+
+var date = new Date(), s = date.getSeconds(), m = date.getMinutes(), h = date.getHours();
+setInterval(function () {
+    if (60 == s) { s = 0; m ++; }
+    if (60 == m) { m = 0; h ++; }
+    if (24 == h) { h = 0; }
+
+    rotate('second', s * 6);
+    rotate('minute', m * 6);
+    rotate('hour', (h >= 12 ? h - 12 : h) * 30 + Math.ceil((m / 60) * 30));
+    s ++;
+}, 1000);
+}
+</script>
+</head>
+<body>
+<h1>SegmentFault大金表</h1>
+<div id="clock">
+<hr id="hour" class="stick" />
+<hr id="minute" class="stick" />
+<hr id="second" class="stick" />
+<hr class="scale" id="s-1" />
+<hr class="scale" id="s-2" />
+<hr class="scale" id="s-3" />
+<hr class="scale" id="s-4" />
+<hr class="scale" id="s-5" />
+<hr class="scale" id="s-6" />
+</div>
+<div id="bar"></div>
+<div id="center"></div>
+</body>
+</html>
