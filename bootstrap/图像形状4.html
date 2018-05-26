@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像形状4</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <script src="jQuery/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--圆角图片
+.rounded 类可以让图片显示圆角效果：-->
+<div class="container">
+    <h2>圆角图片</h2>
+    <p>.rounded 类可以让图片显示圆角效果：</p>
+    <img src="http://static.runoob.com/images/mix/cinqueterre.jpg" class="rounded" alt="Cinque Terre" width="304" height="236">
+</div>
+<!--椭圆图片
+.rounded-circle 类可以设置椭圆形图片:-->
+<div class="container">
+    <h2>椭圆图片</h2>
+    <p>.rounded-circle 类可以设置椭圆形图片:</p>
+    <img src="http://static.runoob.com/images/mix/cinqueterre.jpg" class="rounded-circle" alt="Cinque Terre">
+</div>
+<!--缩略图
+.img-thumbnail 类用于设置图片缩略图(图片有边框):-->
+<div class="container">
+    <h2>缩略图</h2>
+    <p>.img-thumbnail 类用于设置图片缩略图(图片有边框):</p>
+    <img src="http://static.runoob.com/images/mix/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre">
+</div>
+<!--图片对齐方式
+使用 .float-right 类来设置图片右对齐，使用 .float-left 类设置图片左对齐:-->
+<div class="container clearfix">
+    <h2>图片对齐方式</h2>
+    <p>使用 .float-right 类来设置突破右对齐，使用 .float-left 类设置图片左对齐:</p>
+    <img src="http://static.runoob.com/images/mix/paris.jpg" class="float-left">
+    <img src="http://static.runoob.com/images/mix/cinqueterre.jpg" class="float-right">
+</div>
+<!--响应式图片
+图像有各种各样的尺寸，我们需要根据屏幕的大小自动适应。
+我们可以通过在 <img> 标签中添加 .img-fluid 类来设置响应式图片。
+.img-fluid 类设置了 max-width: 100%; 、 height: auto; :-->
+<div class="container">
+    <h2>响应式图片</h2>
+    <p>.img-fluid 类可以设置响应式图片，重置浏览器大小查看效果:</p>
+    <img src="http://static.runoob.com/images/mix/paris.jpg" class="img-fluid">
+</div>
+
+</body>
+</html>

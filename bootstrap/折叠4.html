@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠4</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+
+
+</head>
+<body>
+<!--Bootstrap4 折叠可以很容易的实现内容的显示与隐藏。-->
+<div class="container">
+    <h2>简单的折叠</h2>
+    <p>点击按钮内容会再显示与隐藏之间切换。</p>
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">简单的折叠</button>
+    <div id="demo" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>
+<!--实例解析
+.collapse 类用于指定一个折叠元素 (实例中的 <div>); 点击按钮后会在隐藏与显示之间切换。
+控制内容的隐藏与显示，需要在 <a> 或 <button> 元素上添加 data-toggle="collapse" 属性。 data-target="#id" 属性是对应折叠的内容 (<div id="demo">)。
+注意: <a> 元素上你可以使用 href 属性来代替 data-target 属性:-->
+<div class="container">
+    <h2>简单的折叠</h2>
+    <a href="#demo2" class="btn btn-primary" data-toggle="collapse">简单的折叠</a>
+    <div id="demo2" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>
+<!--默认情况下折叠的内容是隐藏的，你可以添加 .show 类让内容默认显示:-->
+<div class="container">
+    <h2>简单的折叠</h2>
+    <p>你可以添加 .show 类让内容默认显示:</p>
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo3">简单的折叠</button>
+    <div id="demo3" class="collapse show">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>
+<!--以下实例通过扩展卡片组件来显示简单的手风琴。
+注意: 使用 data-parent 属性来确保所有的折叠元素在指定的父元素下，这样就能实现在一个折叠选项显示时其他选项就隐藏。-->
+<div class="container">
+<div id="accordion">
+
+    <div class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                Collapsible Group Item #1
+            </a>
+        </div>
+        <div id="collapseOne" class="collapse show">
+            <div class="card-body">
+                Lorem ipsum..
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                Collapsible Group Item #2
+            </a>
+        </div>
+        <div id="collapseTwo" class="collapse">
+            <div class="card-body">
+                Lorem ipsum..
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                Collapsible Group Item #3
+            </a>
+        </div>
+        <div id="collapseThree" class="collapse">
+            <div class="card-body">
+                Lorem ipsum..
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<!--<div class="container-fluid">-->
+    <!--<div class="accordion" id="accordion2">-->
+        <!--<div class="accordion-group">-->
+            <!--<div class="accordion-heading">-->
+                <!--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">-->
+                    <!--点击我扩展。 再次点击我折叠。 Part I。-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div id="collapseOne" class="accordion-body collapse" style="height: 0; ">-->
+                <!--<div class="accordion-inner">-->
+                    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="accordion-group">-->
+            <!--<div class="accordion-heading">-->
+                <!--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">-->
+                    <!--点击我扩展。 再次点击我折叠。 Part II。-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div id="collapseTwo" class="accordion-body collapse">-->
+                <!--<div class="accordion-inner">-->
+                    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="accordion-group">-->
+            <!--<div class="accordion-heading">-->
+                <!--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">-->
+                    <!--点击我扩展。 再次点击我折叠。 Part  III。-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div id="collapseThree" class="accordion-body collapse">-->
+                <!--<div class="accordion-inner">-->
+                    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<script src="jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提示框4</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <script src="jQuery/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h3>提示框实例</h3><br>
+    <p>如何创建提示框
+        通过向元素添加 data-toggle="tooltip" 来来创建提示框。
+        title 属性的内容为提示框显示的内容：
+        <a href="#" data-toggle="tooltip" title="我是提示内容!">鼠标移动到我这</a><br>
+        注意: 提示框要写在 jQuery 的初始化代码里: 然后在指定的元素上调用 tooltip() 方法。
+        以下实例可以在文档的任何地方使用提示框：</p>
+    <a href="#" data-toggle="tooltip" title="我是提示内容!">鼠标移动到我这</a>
+</div>
+
+<div class="container">
+    <h3>提示框实例</h3><br>
+    <p>指定提示框的位置
+        默认情况下提示框显示在元素上方。
+        可以使用 data-placement 属性来设定提示框显示的方向: top, bottom, left 或 right:</p>
+    <a href="#" data-toggle="tooltip" data-placement="top" title="我是提示内容!">鼠标移动到我这</a>
+    <a href="#" data-toggle="tooltip" data-placement="bottom" title="我是提示内容!">鼠标移动到我这</a>
+    <a href="#" data-toggle="tooltip" data-placement="left" title="我是提示内容!">鼠标移动到我这</a>
+    <a href="#" data-toggle="tooltip" data-placement="right" title="我是提示内容!">鼠标移动到我这</a>
+</div>
+
+
+<div style="padding: 100px 100px 10px;">
+    这是一个
+    <a href="#" class="tooltip-show" data-toggle="tooltip" title="show">Tooltip 方法 show</a>.
+    这是一个
+    <a href="#" class="tooltip-hide" data-toggle="tooltip" data-placement="left" title="hide">Tooltip 方法 hide</a>.
+    这是一个
+    <a href="#" class="tooltip-destroy" data-toggle="tooltip" data-placement="top" title="destroy">Tooltip 方法 destroy</a>.
+    这是一个
+    <a href="#" class="tooltip-toggle" data-toggle="tooltip" data-placement="bottom" title="toggle">Tooltip 方法 toggle</a>.
+    <br><br><br><br><br><br>
+    <p class="tooltip-options" >
+        这是一个
+        <a href="#" data-toggle="tooltip" title="<h2>'am Header2 </h2>">Tooltip 方法 options</a>.
+    </p>
+</div>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        //好像在bootstrap3中有效
+        // $(function () { $('.tooltip-show').tooltip('show');});
+        // $(function () { $('.tooltip-hide').tooltip('hide');});
+        // $(function () { $('.tooltip-destroy').tooltip('destroy');});
+        // $(function () { $('.tooltip-toggle').tooltip('toggle');});
+        // $(function () { $(".tooltip-options a").tooltip({html:true});});
+    </script>
+</body>
+</html>
